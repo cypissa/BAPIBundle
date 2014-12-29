@@ -1,0 +1,21 @@
+services:
+    bapi.invoker.direct:
+        class: Cogi\BAPIBundle\Invoker\DirectInvoker
+        arguments:
+            - "@service_container"
+    bapi.caller:
+        class: Cogi\BAPIBundle\Caller\Caller
+        arguments:
+            - "@bapi.invoker.direct"
+
+    bapi.sample.service.lib:
+        class: Cogi\BAPIBundle\Sample\Service\FibonacciLib
+    public.service.resource.bapi.sample.service.fib:
+        class: Cogi\BAPIBundle\Sample\Service\FibonacciService
+        arguments:
+            - "@bapi.sample.service.lib"
+
+    sample.client.fib:
+        class: Cogi\BAPIBundle\Sample\Client\Client
+        arguments:
+            - "@bapi.caller"
