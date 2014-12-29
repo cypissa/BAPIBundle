@@ -1,5 +1,5 @@
 {
-    "name": "BAPIBundle",
+    "name": "cogi/bapibundle",
     "description": "Abstract API communication layer",
     "require": {
         "php": ">=5.4.0"
